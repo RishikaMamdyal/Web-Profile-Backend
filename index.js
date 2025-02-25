@@ -24,7 +24,7 @@ server.post('/contact', async (req, res) => {
         <h2>New Contact Form Submission</h2>
         <p><strong>Name:</strong> ${fullName}</p>
         <p><strong>Email:</strong> ${emailTo}</p>
-        <p><strong>Reason:</strong> ${reason}</p>
+        <p><strong>Subject:</strong> ${reason}</p>
         <p><strong>Message:</strong> ${message}</p>
       </div>
     `;
