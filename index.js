@@ -4,7 +4,10 @@ const bodyParser = require('body-parser');
 const nodemailer = require('nodemailer');
 
 const server = express();
-server.use(cors());
+server.use(cors({
+  origin: '*',
+  methods: ['POST'],
+}));
 server.use(bodyParser.json());
 
 server.post('/contact', async (req, res) => {
