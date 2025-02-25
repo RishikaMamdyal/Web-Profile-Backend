@@ -8,7 +8,7 @@ server.use(cors());
 server.use(bodyParser.json());
 
 server.post('/contact', async (req, res) => {
-  const { fullName, emailTo, reason, message } = req.body;
+  const { fullName, emailTo, subject, message } = req.body;
 
   try {
     const transporter = nodemailer.createTransport({
@@ -24,7 +24,7 @@ server.post('/contact', async (req, res) => {
         <h2>New Contact Form Submission</h2>
         <p><strong>Name:</strong> ${fullName}</p>
         <p><strong>Email:</strong> ${emailTo}</p>
-        <p><strong>Subject:</strong> ${reason}</p>
+        <p><strong>Subject:</strong> ${subject}</p>
         <p><strong>Message:</strong> ${message}</p>
       </div>
     `;
@@ -32,7 +32,7 @@ server.post('/contact', async (req, res) => {
     const mailOptions = {
       from: emailTo, 
       to: 'rishikamamdyal@gmail.com', 
-      subject: `New Message from ${fullName} Regarding: ${reason}`,
+      subject: `New Message from ${fullName} Regarding: ${subject}`,
       html: emailTemplate,
     };
 
