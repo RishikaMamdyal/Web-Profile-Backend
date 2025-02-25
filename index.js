@@ -5,7 +5,7 @@ const nodemailer = require('nodemailer');
 
 const server = express();
 server.use(cors({
-  origin: '*',
+  origin: 'https://web-profile-flame.vercel.app/',
   methods: ['POST'],
 }));
 server.use(bodyParser.json());
