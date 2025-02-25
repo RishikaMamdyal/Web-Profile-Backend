@@ -4,10 +4,7 @@ const bodyParser = require('body-parser');
 const nodemailer = require('nodemailer');
 
 const server = express();
-server.use(cors({
-  origin: 'https://web-profile-uw2o.vercel.app',
-  methods: ['POST'],
-}));
+server.use(cors());
 server.use(bodyParser.json());
 
 server.post('/contact', async (req, res) => {
