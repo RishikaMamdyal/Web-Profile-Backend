@@ -11,8 +11,8 @@ export default async function handler(req, res) {
     const transporter = nodemailer.createTransport({
       service: 'gmail',
       auth: {
-        user: 'rishikamamdyal@gmail.com', // From environment variables
-        pass: 'zqqt ccrz tgtf czyh',
+        user: 'rishikamamdyal@gmail.com', // From Vercel env variables
+        pass: "zqqt ccrz tgtf czyh",
       },
     });
 
@@ -28,15 +28,15 @@ export default async function handler(req, res) {
 
     const mailOptions = {
       from: emailTo,
-      to: process.env.EMAIL_USER, // Your receiving email
+      to: process.env.EMAIL_USER,
       subject: `New Message from ${fullName} Regarding: ${subject}`,
       html: emailTemplate,
     };
 
     await transporter.sendMail(mailOptions);
-    res.status(200).json({ status: true, message: 'Email sent successfully!' });
+    res.status(200).json({ status: true, message: '📧 Email sent successfully!' });
   } catch (error) {
-    console.error('Error sending email:', error);
+    console.error('❌ Error sending email:', error);
     res.status(500).json({ status: false, message: 'Failed to send email.' });
   }
 }
